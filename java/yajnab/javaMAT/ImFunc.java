@@ -1,9 +1,11 @@
+package java.yajnab.javaMAT;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JavaMat;
+
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -18,8 +20,20 @@ import javax.imageio.ImageIO;
 public class ImFunc {
 
     
-  public static void ImRead(File file) throws IOException{
+  public static void ImReadRGBMatrix(File file) throws IOException{
   BufferedImage image = ImageIO.read(file);  
+  FileWriter matrix = new FileWriter("colormatrix.txt",true);
+  int x = image.getHeight();
+  int y = image.getWidth();
+  for (int i=0;i<y;i++){
+      for(int j=0;j<x;j++){          
+            int clr=  image.getRGB(i,j);
+            matrix.write(clr+"   ");
+            }
+  }
+  }
+  public static void ImReadSplitMatrix(File file)throws IOException {
+   BufferedImage image = ImageIO.read(file);  
   FileWriter redf = new FileWriter("red.txt",true);
   FileWriter greenf = new FileWriter("green.txt",true);
   FileWriter bluef = new FileWriter("blue.txt",true);
@@ -36,6 +50,7 @@ public class ImFunc {
             bluef.write(blue+"    ");
       }
   }
+  }   
   }
     
-}
+
