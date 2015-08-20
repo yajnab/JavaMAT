@@ -65,7 +65,7 @@ public class ImFunc {
       image = ImageIO.read(file);     
       BufferedImageOp op = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null); 
       imageo = op.filter(image, null);
-      if(choice==1){ImageIO.write(imageo,"jpeg",new File("dest.jpg"));}
+      if(choice==1){ImageIO.write(imageo,"jpeg",new File("grayScale.jpg"));}
       }
       catch (IOException ex) {
             
